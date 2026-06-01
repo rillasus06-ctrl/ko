@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vault — archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=Geist:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="vault-body">
+
+  <div class="grain"></div>
+
+  <header class="vault-header">
+    <a href="index.html" class="vault-wordmark">vault</a>
+    <nav class="cat-nav" id="catNav"></nav>
+    <button class="add-fab" id="addFab" aria-label="Add item">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      add
+    </button>
+  </header>
+
+  <main class="vault-main">
+    <div class="vault-section-label" id="sectionLabel"></div>
+
+    <!-- Movies: floating posters -->
+    <div class="poster-stage" id="posterStage" hidden></div>
+
+    <!-- Music: vinyl discs -->
+    <div class="disc-stage" id="discStage" hidden></div>
+
+    <!-- Books / Shows / Games / Custom: editorial grid -->
+    <div class="editorial-grid" id="editorialGrid" hidden></div>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <div class="empty-glyph">◌</div>
+      <p>nothing here yet.</p>
+      <button class="empty-add" id="emptyAdd">add your first one</button>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-cat-label" id="modalCatLabel"></div>
+      <h2 class="modal-title">add to archive</h2>
+
+      <div class="modal-field">
+        <label for="inputName">title</label>
+        <input type="text" id="inputName" placeholder="e.g. Mulholland Drive" autocomplete="off" />
+        <div class="search-results" id="searchResults" hidden></div>
+      </div>
+
+      <div class="modal-field" id="noteField">
+        <label for="inputNote">note <span class="optional">optional</span></label>
+        <input type="text" id="inputNote" placeholder="why it matters to you" autocomplete="off" />
+      </div>
+
+      <!-- shown for custom category only -->
+      <div class="modal-field" id="customCatField" hidden>
+        <label for="inputCustomCat">category name</label>
+        <input type="text" id="inputCustomCat" placeholder="e.g. podcasts" autocomplete="off" />
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-cancel" id="btnCancel">cancel</button>
+        <button class="btn-save" id="btnSave">save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
