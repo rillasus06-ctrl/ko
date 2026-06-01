@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=Geist:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="landing-body">
+
+  <div class="grain"></div>
+  <div class="poster-field" id="posterField"></div>
+
+  <main class="landing-main">
+    <div class="landing-eyebrow reveal" data-delay="0">— personal archive —</div>
+    <h1 class="landing-title">
+      <span class="reveal" data-delay="100">every</span>
+      <span class="reveal italic" data-delay="200">thing</span>
+      <span class="reveal" data-delay="300">you</span>
+      <span class="reveal" data-delay="400">love</span>
+    </h1>
+    <p class="landing-desc reveal" data-delay="600">
+      Books. Films. Records. Games. Shows.<br/>
+      One place. No algorithm. Just yours.
+    </p>
+    <a href="login.html" class="enter-btn reveal" data-delay="800" id="enterBtn">
+      <span>enter the vault</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <div class="landing-categories reveal" data-delay="1000">
+      <span>films</span><span class="dot">·</span>
+      <span>books</span><span class="dot">·</span>
+      <span>music</span><span class="dot">·</span>
+      <span>games</span><span class="dot">·</span>
+      <span>shows</span><span class="dot">·</span>
+      <span>custom</span>
+    </div>
+  </main>
+
+  <footer class="landing-footer reveal" data-delay="1200">vault / your archive</footer>
+
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="landing.js"></script>
+  <script>
+    // skip landing if already logged in
+    Auth.init();
+    Auth.getUser().then(user => {
+      if (user) window.location.href = 'vault.html';
+    });
+  </script>
+</body>
+</html>
